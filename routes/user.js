@@ -3,10 +3,11 @@ const router = express.Router()
 const USER_MODEL = require('../models/user')
 const admin = require('../configure/firebase.configure')
 
-router.post('/login', async (req, res) => {
+router.get('/login', async (req, res) => {
+  console.log(req.headers)
   if (!req.headers.authorization) {
     return res.status(500).json({
-      message: "Invalid Token "
+      message: "Invalid Token here"
     })
   }
   const token = await req.headers.authorization.split(" ")[1]

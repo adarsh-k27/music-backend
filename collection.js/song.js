@@ -8,8 +8,8 @@ exports.CreateSong = async (req, res) => {
             songUrl:req.body.songUrl,
             album:req.body.albumId,
             artist:req.body.artistId,
-            language:req.body.language,
-            catogery: req.body.catogery
+            language:req.body.language.name,
+            catogery: req.body.catogery.name
         })
 
         if (song) return res.status(200).json({

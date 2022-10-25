@@ -15,12 +15,13 @@ const SongSchema = mongoose.Schema({
     },
     album:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"album",
-        required:false
+        ref:"albums",
+        required:true
     },
     artist:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"artist"
+        ref:"artists",
+        required:true
     },
     language:{
         type:String,

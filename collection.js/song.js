@@ -1,10 +1,15 @@
-const SongModel = require('../models/album')
+const SongModel = require('../models/song')
 
 exports.CreateSong = async (req, res) => {
     try {
         const song = await SongModel.create({
             name: req.body.name,
             imageUrl: req.body.image,
+            songUrl:req.body.songUrl,
+            album:req.body.albumId,
+            artist:req.body.artistId,
+            language:req.body.language,
+            catogery: req.body.catogery
         })
 
         if (song) return res.status(200).json({
@@ -54,7 +59,7 @@ exports.FindAllSong = async (req, res) => {
         const songs = await SongModel.find({}).sort({
             craetedAt: 1
         })
-        if (albums) {
+        if (songs) {
             return res.status(200).json({
                 success: true,
                 songs
